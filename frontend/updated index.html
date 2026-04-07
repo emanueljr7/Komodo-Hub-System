@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Komodo Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+<header>
+  <div class="logo">🌿 Komodo Hub</div>
+  <nav id="mainNav">
+    <button type="button" onclick="showSection('home')">Home</button>
+    <button type="button" onclick="showSection('knowledge')">Knowledge Base</button>
+    <button type="button" onclick="showSection('programs')">Programs</button>
+    <button type="button" onclick="showSection('library')">Library</button>
+    <!-- Auth-dependent nav items injected by JS -->
+    <span id="guestNav">
+      <button type="button" onclick="showSection('login')">Login</button>
+      <button type="button" onclick="showSection('register')" class="register-btn">Register</button>
+    </span>
+    <span id="userNav" style="display:none;">
+      <button type="button" onclick="showSection('contribute')">Report Sighting</button>
+      <button type="button" onclick="showSection('dashboard')">Dashboard</button>
+    </span>
+  </nav>
+</header>
+
+<main>
+
+<!-- HOME -->
+<section id="home" class="active">
+  <div class="hero">
+    <h1>Protect Indonesia's Endangered Species</h1>
+    <p>
+      Indonesia holds one of the richest biodiversities on Earth. However, deforestation,
+      illegal wildlife trade, and habitat fragmentation threaten many endemic species.
+      Join communities and schools across the country in protecting our natural heritage.
+    </p>
+    <div class="hero-btns">
+      <button type="button" class="primary-btn" onclick="showSection('programs')">Explore Programs</button>
+      <button type="button" class="secondary-btn" onclick="showSection('knowledge')">Knowledge Base</button>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:50px;">
+    <img src="https://media.istockphoto.com/id/476842034/photo/masoala-green-jungle.jpg?s=612x612&w=0&k=20&c=EhanQNm3yFpYW2xjKvu10fAQyKsnCuYMKXkHHG7eQUY="
+      width="100%" style="border-radius:12px;">
+    <h3 style="margin-top:20px;">Ujung Kulon National Park</h3>
+    <p>
+      The final natural habitat of the critically endangered Javan Rhinoceros.
+      Komodo Hub promotes digital monitoring, school awareness programs,
+      and community-based habitat protection initiatives in this region.
+    </p>
+  </div>
+
+  <div class="grid" style="margin-top:40px;">
+    <div class="card">
+      <img src="https://media.istockphoto.com/id/1305319298/photo/javan-rhino.jpg?s=612x612&w=0&k=20&c=G9d2zmso69KnLRfqNTkDa-bNQ4_0sa-bfTxrNlF33yI=" width="100%" style="border-radius:12px;">
+      <h3 style="margin-top:15px;">Javan Rhinoceros</h3>
+      <p>With fewer than 80 individuals remaining, strict habitat conservation, monitoring systems, and national awareness are essential for survival.</p>
+    </div>
+    <div class="card">
+      <img src="https://media.istockphoto.com/id/1407718566/photo/close-up-of-siberian-tiger.jpg?s=612x612&w=0&k=20&c=qMBc4X_oB3zP1e9_t067GtaSykWLm3NClNpJZ6F61NE=" width="100%" style="border-radius:12px;">
+      <h3 style="margin-top:15px;">Sumatran Tiger</h3>
+      <p>The smallest tiger subspecies in the world. Community participation reduces poaching risks and encourages sustainable land management.</p>
+    </div>
+    <div class="card">
+      <img src="https://img.freepik.com/premium-photo/close-up-photo-javan-hawk-eagle-nisaetus-bartelsi_266258-271.jpg" width="100%" style="border-radius:12px;">
+      <h3 style="margin-top:15px;">Javan Eagle</h3>
+      <p>A symbol of Indonesia's natural heritage. Education-driven conservation strengthens youth engagement in biodiversity protection.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:50px;">
+    <h3>Indonesia as a Global Biodiversity Hotspot</h3>
+    <p>Indonesia is recognised as one of the world's most biodiverse nations. The country contains more than 17,000 islands and supports thousands of species of plants, mammals, birds, and marine life.</p>
+    <p style="margin-top:12px;">Digital platforms like Komodo Hub help increase awareness while encouraging students and communities to contribute to conservation efforts through observation reporting and environmental education.</p>
+  </div>
+
+  <div class="grid" style="margin-top:40px;">
+    <div class="card">
+      <h3>Threats to Biodiversity</h3>
+      <p>Major threats include deforestation, illegal wildlife trade, climate change, and habitat fragmentation. Rapid agricultural expansion can destroy natural habitats if not managed sustainably.</p>
+    </div>
+    <div class="card">
+      <h3>Environmental Education</h3>
+      <p>Environmental education helps students understand how ecosystems function and why biodiversity protection is important. Young people who learn about conservation early are more likely to support sustainable practices.</p>
+    </div>
+    <div class="card">
+      <h3>Community Conservation</h3>
+      <p>Community-based conservation programs encourage local people to participate in protecting natural habitats. Communities near forests and national parks play a vital role in monitoring wildlife.</p>
+    </div>
+  </div>
+
+  <!-- CTA for non-registered users -->
+  <div class="card cta-card" style="margin-top:50px; text-align:center;">
+    <h3>Join the Initiative</h3>
+    <p style="margin-top:10px; opacity:0.9;">Whether you're a school, a community organisation, or an individual — everyone can contribute to protecting Indonesia's endangered species.</p>
+    <div style="margin-top:20px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+      <button type="button" class="primary-btn" onclick="showSection('register')">Register Your Organisation</button>
+      <button type="button" class="secondary-btn" onclick="showSection('library')">Browse Library</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- KNOWLEDGE BASE (accessible to all users, registered or not) -->
+<section id="knowledge">
+  <h2>🦎 Knowledge Base</h2>
+  <p class="section-intro">Explore Indonesia's endangered endemic species. This knowledge base is freely accessible to everyone — no account required.</p>
+
+  <div class="filter-buttons" style="margin-top:25px;">
+    <button type="button" class="primary-btn small-btn" onclick="filterKnowledge('all')">All Species</button>
+    <button type="button" class="filter-btn" onclick="filterKnowledge('critically')">Critically Endangered</button>
+    <button type="button" class="filter-btn" onclick="filterKnowledge('endangered')">Endangered</button>
+    <button type="button" class="filter-btn" onclick="filterKnowledge('bird')">Birds</button>
+    <button type="button" class="filter-btn" onclick="filterKnowledge('mammal')">Mammals</button>
+  </div>
+
+  <div class="grid" id="knowledgeGrid" style="margin-top:20px;">
+    <!-- Populated by JS -->
+  </div>
+
+  <div class="card" style="margin-top:40px;">
+    <h3>About the Knowledge Base</h3>
+    <p>The Komodo Hub knowledge base is built and extended by registered schools and communities across Indonesia. Registered users can contribute sighting reports, essays, articles, and news columns to expand this database.</p>
+    <p style="margin-top:12px; opacity:0.85;">All content is curated and reviewed to ensure accuracy and appropriateness before being published.</p>
+  </div>
+</section>
+
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <h2>Conservation Programs</h2>
+  <p class="section-intro">Structured national initiatives combining digital reporting tools, curriculum integration, and community-led conservation campaigns.</p>
+
+  <div class="grid" style="margin-top:25px;">
+    <div class="card">
+      <img src="https://media.istockphoto.com/id/1305319298/photo/javan-rhino.jpg?s=612x612&w=0&k=20&c=G9d2zmso69KnLRfqNTkDa-bNQ4_0sa-bfTxrNlF33yI=" width="100%" style="border-radius:12px;">
+      <h3 style="margin-top:12px;">Javan Rhinoceros Protection</h3>
+      <p>Focus: Habitat preservation and wildlife monitoring in Ujung Kulon National Park.</p>
+      <span class="tag program-tag">Active Program</span>
+    </div>
+    <div class="card">
+      <img src="https://media.istockphoto.com/id/1407718566/photo/close-up-of-siberian-tiger.jpg?s=612x612&w=0&k=20&c=qMBc4X_oB3zP1e9_t067GtaSykWLm3NClNpJZ6F61NE=" width="100%" style="border-radius:12px;">
+      <h3 style="margin-top:12px;">Sumatran Tiger Awareness</h3>
+      <p>Focus: Community education and anti-poaching initiatives across Sumatra.</p>
+      <span class="tag program-tag">Active Program</span>
+    </div>
+    <div class="card">
+      <img src="https://img.freepik.com/premium-photo/close-up-photo-javan-hawk-eagle-nisaetus-bartelsi_266258-271.jpg" width="100%" style="border-radius:12px;">
+      <h3 style="margin-top:12px;">Javan Eagle Education</h3>
+      <p>Focus: Biodiversity learning programs integrated into school curricula.</p>
+      <span class="tag program-tag">Active Program</span>
+    </div>
+    <div class="card">
+      <h3>🐦 Bali Myna Recovery</h3>
+      <p>Focus: Captive breeding support and habitat restoration for the critically endangered Bali Starling.</p>
+      <span class="tag program-tag">Active Program</span>
+    </div>
+    <div class="card">
+      <h3>🐒 Celebes Crested Macaque</h3>
+      <p>Focus: Community-based protection in North Sulawesi. Fewer than 100 individuals remain in the wild.</p>
+      <span class="tag program-tag">Active Program</span>
+    </div>
+    <div class="card">
+      <h3>🐸 Tarsius Conservation</h3>
+      <p>Focus: Habitat monitoring and research in Sulawesi for one of the world's smallest primates.</p>
+      <span class="tag program-tag">Active Program</span>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:50px;">
+    <h3>Integrated Conservation Strategy</h3>
+    <p>Komodo Hub programs combine education, scientific research, and community participation to support long-term conservation across Indonesia. By integrating digital monitoring with school-based education, participants can document wildlife sightings and environmental conditions.</p>
+  </div>
+
+  <div class="grid" style="margin-top:40px;">
+    <div class="card">
+      <h3>Wildlife Observation Reporting</h3>
+      <p>Registered users record wildlife sightings during environmental activities. These reports provide useful data for conservation researchers monitoring biodiversity trends.</p>
+    </div>
+    <div class="card">
+      <h3>Community Workshops</h3>
+      <p>Workshops organised through Komodo Hub help communities learn about sustainable environmental practices and wildlife protection strategies.</p>
+    </div>
+    <div class="card">
+      <h3>Youth Conservation Leadership</h3>
+      <p>A long-term goal is to encourage young people to become environmental leaders who actively participate in protecting biodiversity and ecosystems.</p>
+    </div>
+    <div class="card">
+      <h3>School Curriculum Integration</h3>
+      <p>Teachers can integrate Komodo Hub activities directly into their class syllabus, assigning both in-class and outdoor activities that contribute to national conservation goals.</p>
+    </div>
+  </div>
+
+  <div class="card cta-card" style="margin-top:40px; text-align:center;">
+    <h3>Enrol Your Organisation</h3>
+    <p style="margin-top:10px; opacity:0.9;">Schools and community organisations can subscribe to access the full range of programs, learning materials, and activities.</p>
+    <button type="button" class="primary-btn" style="margin-top:15px;" onclick="showSection('register')">Register Now</button>
+  </div>
+</section>
+
+
+<!-- LIBRARY (accessible to all — public view) -->
+<section id="library">
+  <h2>📚 Public Contribution Library</h2>
+  <p class="section-intro">Conservation reports, sighting records, essays, and articles submitted by schools and communities across Indonesia. Freely accessible to all visitors.</p>
+
+  <div class="library-stats">
+    <div class="stat-card">
+      <h3 id="totalReports">0</h3>
+      <p>Total Contributions</p>
+    </div>
+    <div class="stat-card">
+      <h3 id="schoolReports">0</h3>
+      <p>School Contributions</p>
+    </div>
+    <div class="stat-card">
+      <h3 id="communityReports">0</h3>
+      <p>Community Contributions</p>
+    </div>
+  </div>
+
+  <div class="filter-buttons">
+    <button type="button" class="primary-btn small-btn" onclick="filterLibrary('all')">All</button>
+    <button type="button" class="filter-btn" onclick="filterLibrary('school')">🏫 Schools</button>
+    <button type="button" class="filter-btn" onclick="filterLibrary('community')">🤝 Communities</button>
+  </div>
+
+  <div id="libraryList" class="grid"></div>
+
+  <p id="libraryLoginPrompt" class="login-prompt" style="display:none;">
+    <strong>Note:</strong> You are viewing publicly available contributions.
+    <a href="#" onclick="showSection('login')">Log in</a> to submit your own reports.
+  </p>
+</section>
+
+
+<!-- REGISTER -->
+<section id="register">
+  <h2>Register with Komodo Hub</h2>
+  <p class="section-intro">Schools and community organisations can subscribe to access the full range of programs, activities, and reporting tools.</p>
+
+  <div class="grid" style="margin-top:30px;">
+    <div class="card reg-type-card" onclick="selectRegType('school')" id="regTypeSchool">
+      <h3>🏫 School Registration</h3>
+      <p style="margin-top:10px;">For primary schools and educational institutions. Student profiles are kept private; only the school's library is publicly visible.</p>
+      <p style="margin-top:10px; opacity:0.75; font-size:0.85rem;">Includes: teacher & student accounts, class management, syllabus integration, private student library.</p>
+    </div>
+    <div class="card reg-type-card" onclick="selectRegType('community')" id="regTypeCommunity">
+      <h3>🤝 Community Registration</h3>
+      <p style="margin-top:10px;">For conservation groups, NGOs, and community organisations. Member contributions and profiles are publicly visible.</p>
+      <p style="margin-top:10px; opacity:0.75; font-size:0.85rem;">Includes: member accounts, public library page, public member profiles, contribution tracking.</p>
+    </div>
+  </div>
+
+  <form onsubmit="submitRegistration(event)" class="modern-form" id="registrationForm" style="display:none; margin-top:30px;">
+    <h3 id="regFormTitle">Register as School</h3>
+
+    <input type="text" id="regOrgName" placeholder="Organisation Name" required>
+    <input type="email" id="regEmail" placeholder="Contact Email" required>
+    <input type="password" id="regPassword" placeholder="Create Password" required>
+    <input type="text" id="regLocation" placeholder="Province / Region">
+    <textarea id="regDescription" placeholder="Brief description of your organisation (optional)"></textarea>
+    <input type="hidden" id="regType" value="">
+
+    <div id="schoolFields" style="display:none;">
+      <p style="opacity:0.8; font-size:0.9rem; margin-bottom:8px;">🔒 Student profiles will be kept private. Only your school library will be public.</p>
+    </div>
+    <div id="communityFields" style="display:none;">
+      <p style="opacity:0.8; font-size:0.9rem; margin-bottom:8px;">🌍 Member profiles and contributions will be publicly visible.</p>
+    </div>
+
+    <button type="submit" class="primary-btn">Submit Registration</button>
+    <p style="opacity:0.7; font-size:0.85rem;">Already registered? <a href="#" onclick="showSection('login')" style="color:#00ffcc;">Login here</a></p>
+  </form>
+</section>
+
+
+<!-- LOGIN -->
+<section id="login">
+  <h2>Login</h2>
+  <p class="section-intro">Access your dashboard, contribute sighting reports, and manage your organisation's programs.</p>
+
+  <form onsubmit="login(event)" class="modern-form">
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Password" required>
+    <select id="role">
+      <option value="admin">System Administrator (Yayasan Komodo)</option>
+      <option value="school_admin">School Administrator</option>
+      <option value="teacher">Teacher</option>
+      <option value="community">Community Organisation</option>
+      <option value="student">Student</option>
+    </select>
+    <button type="submit" class="primary-btn">Login</button>
+    <p style="opacity:0.7; font-size:0.85rem;">Not yet registered? <a href="#" onclick="showSection('register')" style="color:#00ffcc;">Register your organisation</a></p>
+  </form>
+</section>
+
+
+<!-- CONTRIBUTE / REPORT SIGHTING (logged-in users only) -->
+<section id="contribute">
+  <h2>Report a Wildlife Sighting</h2>
+  <p class="section-intro">Logged-in members can submit sighting reports of endangered species. Your contributions are added to the public library and help conservation researchers monitor biodiversity trends.</p>
+
+  <div id="contributeAuthGuard">
+    <!-- shown if not logged in -->
+    <div class="card" style="margin-top:20px; text-align:center;">
+      <p>You must be logged in to submit a report.</p>
+      <button type="button" class="primary-btn" style="margin-top:15px;" onclick="showSection('login')">Login</button>
+    </div>
+  </div>
+
+  <form onsubmit="submitReport(event)" class="modern-form" id="contributeForm" style="display:none;">
+    <label style="opacity:0.8; font-size:0.9rem;">Species Observed</label>
+    <input type="text" id="species" placeholder="e.g. Javan Rhinoceros, Sumatran Tiger" required>
+
+    <label style="opacity:0.8; font-size:0.9rem;">Location</label>
+    <input type="text" id="location" placeholder="Village, District, Province" required>
+
+    <label style="opacity:0.8; font-size:0.9rem;">Date of Sighting</label>
+    <input type="date" id="sightingDate">
+
+    <label style="opacity:0.8; font-size:0.9rem;">Description</label>
+    <textarea id="description" placeholder="Describe what you observed — number of individuals, behaviour, habitat conditions, etc." style="height:100px;"></textarea>
+
+    <label style="opacity:0.8; font-size:0.9rem;">Contribution Type</label>
+    <select id="contributorType">
+      <option value="school">School Contribution</option>
+      <option value="community">Community Contribution</option>
+    </select>
+
+    <label style="opacity:0.8; font-size:0.9rem;">Content Type</label>
+    <select id="contentType">
+      <option value="sighting">Wildlife Sighting Report</option>
+      <option value="essay">Essay / Article</option>
+      <option value="news">News Column</option>
+      <option value="research">Research Note</option>
+    </select>
+
+    <button type="submit" class="primary-btn">Submit Contribution</button>
+
+    <p style="opacity:0.7; font-size:0.85rem;">
+      ⚠️ All submissions are reviewed before being published. Do not include personal student information in public submissions.
+    </p>
+  </form>
+</section>
+
+
+<!-- DASHBOARD (logged-in users only) -->
+<section id="dashboard">
+  <h2>Dashboard</h2>
+  <div id="dashboardContent"></div>
+</section>
+
+</main>
+
+<footer>
+  <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-bottom:10px; opacity:0.7; font-size:0.9rem;">
+    <a href="#" onclick="showSection('home')" style="color:inherit; text-decoration:none;">Home</a>
+    <a href="#" onclick="showSection('knowledge')" style="color:inherit; text-decoration:none;">Knowledge Base</a>
+    <a href="#" onclick="showSection('programs')" style="color:inherit; text-decoration:none;">Programs</a>
+    <a href="#" onclick="showSection('library')" style="color:inherit; text-decoration:none;">Library</a>
+    <a href="#" onclick="showSection('register')" style="color:inherit; text-decoration:none;">Register</a>
+  </div>
+  <p>© 2026 Komodo Hub Initiative — Yayasan Komodo | A platform for community-supported animal conservation</p>
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
